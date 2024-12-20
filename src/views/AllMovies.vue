@@ -1,11 +1,13 @@
 <template>
-  <div class="min-h-screen bg-navy-900 text-white px-8 py-12">
-    <h1 class="text-2xl font-bold mb-8 mt-10">All Movies</h1>
-    <div class="grid grid-cols-5 gap-6">
+  <div class="min-h-screen bg-navy-900 text-white px-4 py-12 sm:px-8">
+    <h1 class="text-2xl font-bold mb-8 mt-16">All Movies</h1>
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6"
+    >
       <div
         v-for="movie in movies"
         :key="movie.id"
-        class="group relative rounded-lg overflow-hidden"
+        class="group relative rounded-lg overflow-hidden cursor-pointer"
         @click="goToDetail(movie.id)"
       >
         <img :src="getImageUrl(movie.poster_path)" class="w-full h-auto" />
@@ -27,7 +29,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { getAllMoviesFromEndpoints, getImageUrl } from "../api";
 
 export default {
@@ -37,8 +39,7 @@ export default {
 
     const fetchMovies = async () => {
       try {
-        // Ambil semua data film dari berbagai endpoint
-        movies.value = await getAllMoviesFromEndpoints(70); // 5 adalah jumlah halaman maksimum
+        movies.value = await getAllMoviesFromEndpoints(50);
       } catch (error) {
         console.error("Error fetching all movies:", error);
       }

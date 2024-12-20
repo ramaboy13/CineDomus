@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-navy-900 pt-20 px-8">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto mt-10">
       <div class="flex items-center justify-between mb-8">
         <h1 class="text-4xl font-bold text-white">Discover Movies</h1>
         <div class="flex space-x-4">
@@ -24,7 +24,7 @@
         <div
           v-for="movie in movies"
           :key="movie.id"
-          class="group relative rounded-lg overflow-hidden"
+          class="group relative rounded-lg overflow-hidden cursor-pointer mb-6"
         >
           <img
             :src="getImageUrl(movie.poster_path)"
@@ -50,8 +50,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
 import { fetchData, getImageUrl } from "@/api";
+import { onMounted, ref, watch } from "vue";
 
 const categories = ["Popular", "Top Rated", "Now Playing", "Upcoming"];
 const activeCategory = ref("Popular");

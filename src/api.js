@@ -4,16 +4,19 @@
 // const imageUrlOriginal = "https://image.tmdb.org/t/p/original";
 // const apiKey = "cb11d614163692e7049f74d70b7342da"; // Replace with your TMDB API key
 
-// File: api.js
-
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "cb11d614163692e7049f74d70b7342da"; // Ganti dengan API Key Anda
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
+const YOUTUBE_URL = "https://www.youtube.com/embed/";
 
 export function getImageUrl(path) {
   return path
     ? `${IMAGE_BASE_URL}${path}`
     : "https://via.placeholder.com/500x750?text=No+Image";
+}
+
+export function getYoutubeUrl(key) {
+  return `${YOUTUBE_URL}${key}`;
 }
 
 export async function fetchData(endpoint, params = {}) {
@@ -38,25 +41,50 @@ export async function fetchData(endpoint, params = {}) {
 }
 
 // Mendapatkan film populer dengan kemampuan memuat lebih banyak halaman
-export async function getPopularMovies(page = 1) {
+export async function getPopularMovies(page = 10) {
   return fetchData("/movie/popular", { page });
 }
 
 // Mendapatkan film yang sedang tayang
-export async function getNowPlayingMovies(page = 1) {
+export async function getNowPlayingMovies(page = 10) {
   return fetchData("/movie/now_playing", { page });
 }
 
 // Fungsi pencarian film berdasarkan query
-export async function searchMovies(query, page = 1) {
+export async function searchMovies(query, page = 10) {
   return fetchData("/search/movie", { query, page });
 }
 
 // Mendapatkan detail film berdasarkan ID
 export async function getMovieDetails(id) {
   try {
-    const data = await fetchData(`/movie/${id}`);
-    return data;
+    // Get both movie details and videos in parallel
+    const [movieData, videosData] = await Promise.all([
+      fetchData(`/movie/${id}`),
+      fetchData(`/movie/${id}/videos`),
+    ]);
+
+    // Filter for YouTube trailers and teasers
+    const trailers = videosData.results
+      .filter(
+        (video) =>
+          video.site === "YouTube" &&
+          (video.type === "Trailer" || video.type === "Teaser")
+      )
+      .map((video) => ({
+        id: video.id,
+        key: video.key,
+        name: video.name,
+        type: video.type,
+        url: getYoutubeUrl(video.key),
+        thumbnail: `https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`,
+      }));
+
+    // Return combined data
+    return {
+      ...movieData,
+      trailers,
+    };
   } catch (error) {
     console.error("Error fetching movie details:", error);
     throw error;
