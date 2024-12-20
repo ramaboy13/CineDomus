@@ -30,12 +30,14 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import { getAllMoviesFromEndpoints, getImageUrl } from "../api";
 
 export default {
   name: "AllMovies",
   setup() {
     const movies = ref([]);
+    const router = useRouter();
 
     const fetchMovies = async () => {
       try {
@@ -46,7 +48,7 @@ export default {
     };
 
     const goToDetail = (movieId) => {
-      window.location.href = `/movie/${movieId}`;
+      router.push({ name: "DetailMovie", params: { id: movieId } });
     };
 
     onMounted(() => {

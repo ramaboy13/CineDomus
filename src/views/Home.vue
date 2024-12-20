@@ -228,11 +228,13 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import { fetchData, getImageUrl } from "../api";
 
 export default {
   name: "Home",
   setup() {
+    const router = useRouter();
     const navItems = ["Home", "About", "News", "Discover", "Community"];
     const activeTab = ref("Random");
     const featuredMovies = ref([]);
@@ -341,18 +343,17 @@ export default {
       await fetchMoviesByTab(tab);
       console.log(`Tab changed to: ${tab}`);
     };
+    const goToDetail = (movieId) => {
+      router.push({ name: "DetailMovie", params: { id: movieId } });
+    };
+
+    const goToAllMovies = () => {
+      router.push({ path: "/all-movies" });
+    };
 
     onMounted(() => {
       fetchMovies();
     });
-
-    const goToDetail = (movieId) => {
-      window.location.href = `/movie/${movieId}`;
-    };
-
-    const goToAllMovies = () => {
-      window.location.href = "/all-movies";
-    };
 
     return {
       navItems,
