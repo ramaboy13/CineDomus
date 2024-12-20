@@ -25,6 +25,7 @@
           v-for="movie in movies"
           :key="movie.id"
           class="group relative rounded-lg overflow-hidden cursor-pointer mb-6"
+          @click="goToDetail(movie.id)"
         >
           <img
             :src="getImageUrl(movie.poster_path)"
@@ -52,10 +53,12 @@
 <script setup>
 import { fetchData, getImageUrl } from "@/api";
 import { onMounted, ref, watch } from "vue";
+import { useRouter } from "vue-router";
 
 const categories = ["Popular", "Top Rated", "Now Playing", "Upcoming"];
 const activeCategory = ref("Popular");
 const movies = ref([]);
+const router = useRouter();
 
 const fetchMovies = async () => {
   try {
@@ -81,7 +84,10 @@ const fetchMovies = async () => {
   }
 };
 
-watch(activeCategory, fetchMovies);
+const goToDetail = (movieId) => {
+  router.push({ name: "DetailMovie", params: { id: movieId } });
+};
 
+watch(activeCategory, fetchMovies);
 onMounted(fetchMovies);
 </script>
