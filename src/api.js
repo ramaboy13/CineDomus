@@ -5,7 +5,7 @@
 // const apiKey = "cb11d614163692e7049f74d70b7342da"; // Replace with your TMDB API key
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
-const API_KEY = "cb11d614163692e7049f74d70b7342da"; // Ganti dengan API Key Anda
+const API_KEY = ""; // Ganti dengan API Key Anda
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 const YOUTUBE_URL = "https://www.youtube.com/embed/";
 
