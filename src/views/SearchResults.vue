@@ -84,7 +84,7 @@
 <script setup>
 import { onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { fetchData, getImageUrl } from "../api";
+import { fetchData, getImageUrl } from "../api/api";
 
 const movies = ref([]);
 const route = useRoute();

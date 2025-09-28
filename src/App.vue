@@ -1,12 +1,3 @@
-<!-- src/App.vue -->
-<template>
-  <div id="app">
-    <NavBar />
-    <router-view></router-view>
-    <Footer></Footer>
-  </div>
-</template>
-
 <script>
 import Footer from "./components/Footer.vue";
 import NavBar from "./components/NavBar.vue";
@@ -19,3 +10,12 @@ export default {
   },
 };
 </script>
+
+
+<template>
+  <div id="app">
+    <NavBar />
+    <router-view></router-view>
+    <Footer></Footer>
+  </div>
+</template>

@@ -1,6 +1,5 @@
-// stores/movieStore.js
 import { defineStore } from "pinia";
-import { apiHelpers, movieAPI } from "../api";
+import { apiHelpers, movieAPI } from "../api/api";
 
 export const useMovieStore = defineStore("movie", {
   state: () => ({

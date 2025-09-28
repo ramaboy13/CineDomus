@@ -1,146 +1,190 @@
 <template>
-  <footer class="bg-navy-900 text-white py-12 px-8 shadow-2xl">
-    <div class="max-w-7xl mx-auto">
-      <!-- Main Footer Content -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+  <footer class="bg-gradient-to-t from-black via-gray-900 to-black text-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/20 to-transparent"></div>
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="relative max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        
         <!-- Brand Section -->
-        <div class="space-y-4">
-          <h2 class="text-2xl font-bold">MCED Footer</h2>
-          <p class="text-gray-400 text-sm">
-            This website is dedicated to all movie enthusiasts who love
-            exploring and discovering films. We are proud to collaborate with
-            TMDB to provide you with a seamless platform.
+        <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center">
+              <img src="/img/logo.png" alt="logo">
+            </div>
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
+              CineDomous
+            </h2>
+          </div>
+          <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-md">
+            Your ultimate destination for discovering and streaming the best movies and TV shows. 
+            Join millions of movie enthusiasts worldwide in our cinematic community.
           </p>
+          
+          <!-- Newsletter Subscription -->
+          <div class="space-y-4 text-gray-400">
+           <p>&copy; 2025 CineDomus. All rights reserved.</p>
+          </div>
         </div>
 
-        <!-- Navigation Links -->
-        <div class="lg:ml-12">
-          <h3 class="text-lg font-semibold mb-4">Navigation</h3>
-          <ul class="space-y-2 text-gray-400">
+        <!-- Quick Links -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold mb-6 text-white">Quick Links</h3>
+          <ul class="space-y-4">
             <li>
-              <a href="/" class="hover:text-white transition-colors">Home</a>
+              <router-link to="/" class="text-gray-400 hover:text-red-500 transition-colors duration-300 flex items-center group">
+                <span class="w-1 h-1 bg-red-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                Home
+              </router-link>
             </li>
             <li>
-              <a href="/about" class="hover:text-white transition-colors"
-                >About Us</a
-              >
+              <router-link to="/movies" class="text-gray-400 hover:text-red-500 transition-colors duration-300 flex items-center group">
+                <span class="w-1 h-1 bg-red-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                Movies
+              </router-link>
             </li>
             <li>
-              <a href="/discover" class="hover:text-white transition-colors"
-                >Discover</a
-              >
+              <router-link to="/about" class="text-gray-400 hover:text-red-500 transition-colors duration-300 flex items-center group">
+                <span class="w-1 h-1 bg-red-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                About Us
+              </router-link>
             </li>
             <li>
-              <a href="/community" class="hover:text-white transition-colors"
-                >Community</a
-              >
+              <router-link to="/discover" class="text-gray-400 hover:text-red-500 transition-colors duration-300 flex items-center group">
+                <span class="w-1 h-1 bg-red-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                Discover
+              </router-link>
             </li>
           </ul>
         </div>
 
-        <!-- Information -->
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Information</h3>
-          <ul class="space-y-2 text-gray-400">
-            <li>+123456789</li>
-            <li>baritosurya13@gmail.com</li>
-            <li>137, South Jakarta, Indonesia</li>
+        <!-- Contact & Support -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl font-semibold mb-6 text-white">Get in Touch</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center space-x-3 text-gray-400">
+              <div class="w-8 h-8 bg-gray-800/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </div>
+              <span>+62 123 456 789</span>
+            </li>
+            <li class="flex items-center space-x-3 text-gray-400">
+              <div class="w-8 h-8 bg-gray-800/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <span>baritosurya13@gmail.com</span>
+            </li>
+            <li class="flex items-start space-x-3 text-gray-400">
+              <div class="w-8 h-8 bg-gray-800/50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+              </div>
+              <span>Jakarta, Indonesia<br>Southeast Asia</span>
+            </li>
           </ul>
-        </div>
 
-        <!-- Newsletter Subscription -->
-        <div>
-          <h3 class="text-lg font-semibold mb-4">
-            Subscribe to Our Newsletter
-          </h3>
-          <form class="flex flex-col space-y-2">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              class="p-2 rounded-md bg-gray-800 text-white"
-            />
-            <button
-              type="submit"
-              class="px-4 py-2 bg-red-500 rounded-md text-white hover:bg-red-600"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t border-gray-800 my-8"></div>
-
-      <!-- Footer Bottom -->
-      <div
-        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
-      >
-        <p class="text-sm text-gray-400">
-          Copyright ©2024 All rights reserved | Website is made with by
-          <a
-            href="https://ramaboy13.github.io/ramaboy.github.io/"
-            class="text-blue-400 hover:text-blue-300"
-            >Barito Surya Ramadhani</a
-          >
-        </p>
-
-        <!-- Social Media Icons -->
-        <div class="flex space-x-4">
-          <a
-            href="https://www.facebook.com/rama.buoys"
-            class="text-gray-400 hover:text-white transition-colors"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://x.com/ramaboy__"
-            class="text-gray-400 hover:text-white transition-colors"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/ramaboy_13/"
-            class="text-gray-400 hover:text-white transition-colors"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913a5.885 5.885 0 001.384 2.126A5.868 5.868 0 004.14 23.37c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558a5.898 5.898 0 002.126-1.384 5.86 5.86 0 001.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913a5.89 5.89 0 00-1.384-2.126A5.847 5.847 0 0019.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 01-.899 1.382 3.744 3.744 0 01-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 01-1.379-.899 3.644 3.644 0 01-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/barito-surya-ramadhani-7a4942257/"
-            class="text-gray-400 hover:text-white transition-colors"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              />
-            </svg>
-          </a>
+          <!-- Social Media -->
+          <div class="mt-8">
+            <h4 class="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/rama.buoys" 
+                 class="w-10 h-10 bg-gray-800/50 hover:bg-blue-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+                </svg>
+              </a>
+              <a href="https://x.com/ramaboy__" 
+                 class="w-10 h-10 bg-gray-800/50 hover:bg-black rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"/>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/ramaboy_13/" 
+                 class="w-10 h-10 bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16.98 0a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 6 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3.2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </footer>
 </template>
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-<script>
-export default {
-  name: "Footer",
+// Navigation items
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "News", path: "/news" },
+  { name: "Discover", path: "/discover" },
+  { name: "Community", path: "/community" },
+];
+
+// State management
+const searchQuery = ref("");
+const router = useRouter();
+const isMenuOpen = ref(false);
+const isSearchOpen = ref(false);
+
+// Search handler
+const handleSearch = () => {
+  if (searchQuery.value.trim()) {
+    router.push({ path: "/search", query: { q: searchQuery.value } });
+    searchQuery.value = "";
+    isSearchOpen.value = false;
+  }
+};
+
+// Toggle handlers
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+  if (isSearchOpen.value) isSearchOpen.value = false;
+};
+
+const toggleSearch = () => {
+  isSearchOpen.value = !isSearchOpen.value;
+  if (isMenuOpen.value) isMenuOpen.value = false;
 };
 </script>
 
 <style scoped>
-.bg-navy-900 {
-  background-color: #0f172a;
+nav {
+  background-color: 
+#1a2238;
+}
+
+@media (min-width: 768px) {
+  .md\:block {
+    display: block !important;
+  }
+}
+
+/* Add smooth transition for menu items */
+.router-link-active {
+  color: 
+#ef4444;
+}
+
+/* Prevent body scroll when mobile menu is open */
+@media (max-width: 767px) {
+  body:has(.mobile-menu-open) {
+    overflow: hidden;
+  }
 }
 </style>
+
